@@ -41,7 +41,7 @@ class GraphClass:
                    if neighbor == last:
                        return newPath
                    visited.append(node)
-
+    #Depth First Search Iterative
     def DFS_Iterative(self,starting):
         visited = []
         stack = []
