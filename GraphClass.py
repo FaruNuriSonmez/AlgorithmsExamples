@@ -1,9 +1,9 @@
 class GraphClass:
-    def __init__(self, dictionary=None): #class içindeki tüm fonksiyonlar self parametresi alırlar. dictionary grap yapımızı tutan dictionary yapımız
-        if dictionary == None: #dictionary eger boş geldiyse,
+    def __init__(self, dictionary=None):
+        if dictionary == None:
             dictionary = {}
         self.dictionary = dictionary
-
+    #Breadth-First Search
     def BFS(self, starting):
         visited = {}
         output = []
@@ -20,6 +20,24 @@ class GraphClass:
                     engueue.append(i)
                     visited[i] = True
         return output
+    #Breadth-First Search Shortest Path
+    def BFS_ShortestPath(self, first, end):
+       visited = []
+       engueue = [[first]]
 
-    def BFS_ShortestPath(self):
-        print("ss")
+       if first == end:
+           return
+       while engueue:
+           path = engueue.pop(0)
+           node = path[-1]
+
+           if node not in visited:
+               neighbors = self.dictionary[node]
+
+               for neighbor in neighbors:
+                   newPath = list(path)
+                   newPath.append(neighbor)
+                   engueue.append(newPath)
+                   if neighbor == end:
+                       return newPath
+                   visited.append(node)

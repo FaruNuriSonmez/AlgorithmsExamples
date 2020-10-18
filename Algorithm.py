@@ -10,6 +10,6 @@ graph = {
     "H" : ["E","G"],
     "G" : ["H"]
 }
-graphNesnesi = GraphClass.GraphClass(graph)
-output = graphNesnesi.BFS("A")
+graphObject = GraphClass.GraphClass(graph)
+output = graphObject.BFS("A"), graphObject.BFS_ShortestPath("A", "H")
 print(output)
