@@ -21,11 +21,11 @@ class GraphClass:
                     visited[i] = True
         return output
     #Breadth-First Search Shortest Path
-    def BFS_ShortestPath(self, first, end):
+    def BFS_ShortestPath(self, first, last):
        visited = []
        engueue = [[first]]
 
-       if first == end:
+       if first == last:
            return
        while engueue:
            path = engueue.pop(0)
@@ -38,6 +38,23 @@ class GraphClass:
                    newPath = list(path)
                    newPath.append(neighbor)
                    engueue.append(newPath)
-                   if neighbor == end:
+                   if neighbor == last:
                        return newPath
                    visited.append(node)
+
+    def DFS_Iterative(self,starting):
+        visited = []
+        stack = []
+        stack.append(starting)
+        output = []
+        while(len(stack)):
+            last = stack[-1]
+            stack.pop()
+            if last not in visited:
+                visited.append(last)
+                output.append(last)
+            for neighbor in self.dictionary[last]:
+                if neighbor not in visited:
+                    stack.append(neighbor)
+        return output
+

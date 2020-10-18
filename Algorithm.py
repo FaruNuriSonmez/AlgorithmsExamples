@@ -11,5 +11,5 @@ graph = {
     "G" : ["H"]
 }
 graphObject = GraphClass.GraphClass(graph)
-output = graphObject.BFS("A"), graphObject.BFS_ShortestPath("A", "H")
+output = graphObject.BFS("A"), graphObject.BFS_ShortestPath("A", "H"), graphObject.DFS_Iterative("A")
 print(output)
